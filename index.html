@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gates game</title>
+  <link rel="manifest" href="manifest.json">
+  <style>
+    body { font-family: sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; background: #f4f4f9; text-align: center; }
+    .btn { padding: 15px 30px; background: #007bff; color: white; text-decoration: none; border-radius: 8px; margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h2>Apertura in corso...</h2>
+  <p>Verrai reindirizzato tra un istante.</p>
+  <a id="link-manuale" href="#" class="btn">Continua</a>
+
+  <script>
+    const urlDestinazione = "https://esempio.it";
+    document.getElementById("link-manuale").href = urlDestinazione;
+
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+
+    setTimeout(() => {
+      window.location.replace(urlDestinazione);
+    }, 1000);
+  </script>
+</body>
+</html>
